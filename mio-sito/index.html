@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tabella dati</title>
+</head>
+
+<body>
+    <br>
+    <br>
+
+    <div class="container">
+        <table class="header-table">
+            <tr>
+                <td><h1>Dipendenti</h1></td>
+                <td></td>
+                <td></td>
+                <td><button id="modal-btn" class="button">Aggiungi</button></td>
+            </tr>
+        </table>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Azioni</th>
+                </tr>
+            </thead>
+            <tbody id="to-fill">
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <button onclick="loadFirstPage()" class="paging-button"> Prima </button>
+        <button onclick="loadPreviousPage()" id = "prev-button" class="paging-button"> Precedente </button>
+        <button class="paging-button" id="page-counter"> 1 </button>
+        <button onclick="loadNextPage()" class="paging-button"> Seguente </button>
+        <button onclick="loadLastPage()" class="paging-button"> Ultima </button>
+    </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-container">
+                <h1 class="header">Inserisci dipendente</h1>
+                <br>
+                
+                <table class="modal-table">
+                    <tbody class="modal-body">
+                        <tr>
+                            <td><label>Nome</label></td>
+                            <td><input type="text" id="name"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Cognome</label></td>
+                            <td><input type="text" id="lastname"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Data di nascita</label></td>
+                            <td><input type="date" id="birthday"></td>
+                        </tr>
+                        <tr>
+                            <td><label>Data di assunzione</label></td>
+                            <td><input type="date" id="hiring-date"></td>
+                        </tr>
+                        <tr class="radio-row">
+                            <td><label>Sesso</label></td>
+                            <td class="radio-container">
+                                <input type="radio" name="sex" id="sex" value="M" class="m-radio" checked> 
+                                <input type="radio" name="sex" id="sex" value="F" class="f-radio">   
+                            </td>
+                        </tr>
+                        <tr>
+                        </tr>
+                        <td colspan="2" class=""radio-container><button class="modal-button" onclick="saveModalInputs(); emptyModalInputs();">&nbsp;&nbsp;Invia</button></td>
+                    </tbody>
+                </table>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <script src="jQuery.js"></script>
+
+</body>
+<script>
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("modal-btn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+</html>
