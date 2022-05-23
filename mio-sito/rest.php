@@ -82,4 +82,14 @@ echo json_encode($pagine,JSON_UNESCAPED_SLASHES);
         die ("Query fallita " . mysqli_error($conn) . " " . mysqli_errno($conn));
     }
 
+    if ($metodo == "POST"){
+    
+        $nome= $_GET['nome'];  
+        $cognome= $_GET['cognome'];  
+  
+       $insert = "INSERT INTO employees (first_name, last_name)
+        VALUES ('$nome','$cognome')";
+        
+        $insertr = mysqli_query ($conn, $insert) or //risultato
+        die ("Query fallita " . mysqli_error($conn) . " " . mysqli_errno($conn));
 ?>
